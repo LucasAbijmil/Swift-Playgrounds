@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='OptionalString.orEmpty'/>
+        <page name='Custom String Interpolation'/>
+        <page name='Localized String with String Interpolation'/>
+        <page name='StaticString &amp; URL init custom'/>
+    </pages>
+</playground>

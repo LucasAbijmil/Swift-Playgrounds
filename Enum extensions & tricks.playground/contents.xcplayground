@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw' executeOnSourceChanges='true'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='Enum sans associated value'/>
+        <page name='Enum avec associated value'/>
+        <page name='Switch pattern matching'/>
+        <page name='If case pattern matching'/>
+        <page name='Guard case pattern matching'/>
+        <page name='For case pattern matching'/>
+        <page name='Enum Codable'/>
+        <page name='Indirect Enum'/>
+    </pages>
+</playground>
