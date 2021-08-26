@@ -17,6 +17,7 @@ Here's the list:
 - Defer
 - Dependency Injection
 - Enum extensions & tricks
+- ExpressibleByStringLiteral
 - Grand Central Dispatch
 - High Order Functions
 - Keypath
