@@ -47,7 +47,6 @@ Some playgrounds need to be reworked to provide a better quality.
 
 Here's the list:
 - ARC & Memory Leaks ∪ ARC, Retain Cycle & Memory Leaks
-- Grand Central Dispatch
 - init, init?, convenience init, requiered init
 
 ## Author
