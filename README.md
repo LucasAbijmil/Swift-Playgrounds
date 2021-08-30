@@ -2,7 +2,7 @@
 A set of playgrounds that explains a Swift topic.
 
 ## Details 
-These playgrounds cover a technical topic of Swift with examples. All explanations are in **French**.
+These playgrounds cover a technical topic of Swift with examples. **All explanations are in French**.
 
 Here's the list: 
 - @(non)escaping closures
