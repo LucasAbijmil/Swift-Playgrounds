@@ -44,6 +44,7 @@ Here's the list:
 
 ## Improvements
 Some playgrounds need to be reworked to provide a better quality. 
+However, if you notice errors or ambiguous passages, do not hesitate to open a PR.
 
 Here's the list:
 - ARC & Memory Leaks ∪ ARC, Retain Cycle & Memory Leaks
