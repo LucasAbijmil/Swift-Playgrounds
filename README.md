@@ -48,7 +48,6 @@ However, if you notice errors or ambiguous passages, do not hesitate to open a P
 
 Here's the list:
 - ARC & Memory Leaks ∪ ARC, Retain Cycle & Memory Leaks
-- init, init?, convenience init, requiered init
 
 ## Author
 Lucas Abijmil, lucas.abijmil@gmail.com. 
