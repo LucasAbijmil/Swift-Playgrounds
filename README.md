@@ -12,7 +12,6 @@ Here's the list:
 - ARC, Retain Cycle & Memory Leaks
 - Access Control
 - Array extensions & tricks
-- Async & Await (WIP – waiting for the release of Swift 5.5)
 - Custom Prefix, Postfix, Infix Operators
 - Defer
 - Dependency Injection
