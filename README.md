@@ -8,9 +8,9 @@ Here's the list:
 - @(non)escaping closures
 - @autoclosure
 - @discardableResult
+- Access Control
 - ARC & Memory Leaks
 - ARC, Retain Cycle & Memory Leaks
-- Access Control
 - Array extensions & tricks
 - Custom Prefix, Postfix, Infix Operators
 - Defer
@@ -19,27 +19,27 @@ Here's the list:
 - ExpressibleByStringLiteral
 - Grand Central Dispatch
 - High Order Functions
+- init, init?, convenience init, requiered init
 - Keypath
 - Lazy Property 
 - Literal Expression & Log function
 - Opaque Return Type
+- private(set)
 - Property Observers
 - Protocols
 - RawRepresentable
 - Static properties & functions
 - Strings extensions & tricks
-- Typealias
-- URLComponents + URLRequest
-- Unit Tests
-- init, init?, convenience init, requiered init
-- private(set)
+- Swift Concurrency : `async await`, `async let` binding, `Task` & `TaskGroup`, `Actor` & `@MainActor` and more.
 - try, throws & rethrows
+- Typealias
+- Unit Tests
+- URLComponents + URLRequest
 
 ## Resources
 - [Swift Documentation](https://swift.org/documentation/)
 - [*Improve your knowledge of Swift!*](https://www.youtube.com/playlist?list=PLdXMqVQnoFleH3GSuTUpr3Fjzp1JMy-je) by [Vincent Pradeilles](https://twitter.com/v_pradeilles)
-- [Hacking with Swift](https://www.hackingwithswift.com/)
-
+- [Hacking with Swift](https://www.hackingwithswift.com/) & [What's new in Swift](https://www.whatsnewinswift.com/) by [Paul Hudson](https://twitter.com/twostraws)
 
 ## Improvements
 Some playgrounds need to be reworked to provide a better quality. 

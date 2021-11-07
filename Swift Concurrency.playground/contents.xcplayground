@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Home'/>
+        <page name='Async Await'/>
+        <page name='Async Await Throws'/>
+        <page name='Async URLSession'/>
+        <page name='Async Let Binding'/>
+        <page name='AsyncSequence'/>
+        <page name='Completion to Async'/>
+        <page name='Structured Concurrency'/>
+        <page name='Actors'/>
+        <page name='MainActors'/>
+        <page name='Sendable &amp; @Sendable'/>
+    </pages>
+</playground>
