@@ -15,6 +15,14 @@ enum Direction: String, Codable {
   case west
 }
 //: ## `Enum` sans `RawValue` et `associated value`
+//: Note : **Depuis Swift 5.5, ces enums sont Codable sans extra work**
+enum Device: Codable {
+  case phone
+  case pad
+  case watch
+  case computer
+}
+//: Avant cette update, on devait faire cela en plusieurs étapes comme il suit
 //: * *Step 1* : Déclaration de l'`enum`
 enum Action {
   case run
@@ -77,6 +85,13 @@ extension Action: Codable {
   }
 }
 //: ## `Enum` avec `associated values` mais sans `RawValue`
+//: Note : **Depuis Swift 5.5, ces enums sont Codable sans extra work**
+enum Weather: Codable {
+  case sun
+  case wind(speed: Int)
+  case rain(amount: Int, chance: Int)
+}
+//: Avant cette update, on devait faire cela en plusieurs étapes comme il suit
 //: * *Step 1* : Déclaration de l'`enum`
 enum Footballeur {
   case gardient(name: String)
@@ -133,5 +148,4 @@ extension Footballeur: Codable {
     }
   }
 }
-
 //: [< Previous: `for case` pattern matching](@previous)           [Home](Introduction)           [Next: `indirect enum` >](@next)

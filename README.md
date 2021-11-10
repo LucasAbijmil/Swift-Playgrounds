@@ -31,6 +31,8 @@ Here's the list:
 - Static properties & functions
 - Strings extensions & tricks
 - Swift Concurrency : `async await`, `async let` binding, `Task` & `TaskGroup`, `Actor` & `@MainActor` and more.
+- Swift Updates : A file containing playgrounds for Swift updates.
+  - Swift 5.5
 - try, throws & rethrows
 - Typealias
 - Unit Tests
