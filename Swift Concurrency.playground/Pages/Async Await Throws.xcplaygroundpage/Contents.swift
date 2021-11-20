@@ -1,8 +1,9 @@
 import Foundation
 /*:
- # Async Throws functions – Création et appelle de fonctions asynchrones qui peuvent générer une erreur
+ # Async Throws functions – Création et appelle de fonctions asynchrones qui peuvent générer une erreur – Binding séquentiel
  * Odre de déclaration : `async` puis `throws`
  * Ordre d'appelle : `try` puis `await`
+ * Lorsqu'on attend (`await`), la `Task` libère le thread
  */
 enum UserError: Error {
   case invalideCount

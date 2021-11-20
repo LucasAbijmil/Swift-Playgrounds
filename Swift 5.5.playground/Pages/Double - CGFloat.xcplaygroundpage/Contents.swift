@@ -8,13 +8,13 @@ import CoreGraphics
 func foo(float: CGFloat) -> CGFloat { return float }
 let doubleThree = 3.0
 let fooFloat = foo(float: doubleThree)
-print("Type of the arg is : \(type(of: doubleThree)) | Type of the return is \(type(of: fooFloat))")
+print("Type of the arg is : \(type(of: doubleThree)) | Type of the return is : \(type(of: fooFloat))")
 //: * Exemple d'un `CGFloat` converti en `Double` implicitement
 func foo(double: Double) -> Double { return double }
 let cgFloatThree: CGFloat = 3.0
 let fooDouble = foo(double: cgFloatThree)
-print("Type of the arg is : \(type(of: cgFloatThree)) | Type of the return is \(type(of: fooDouble))")
-//: * Remarque : Le compilateur préféreras **toujours utiliser un `Double` car il permet d'avoir un maximum de précision**
+print("Type of the arg is : \(type(of: cgFloatThree)) | Type of the return is : \(type(of: fooDouble))")
+//: * Remarque : Le compilateur préféreras **toujours utiliser un `Double` car il permet d'avoir un maximum de précision** (car codé sur 64 bits)
 let randomDouble = Double.random(in: 0...100)
 let randomCgFloat = CGFloat.random(in: 0...100)
 let result = randomDouble + randomCgFloat

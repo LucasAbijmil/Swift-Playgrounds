@@ -1,6 +1,6 @@
 import SwiftUI
 /*:
- # #if checks supportés pour les expressions postfix
+ # #if avec des expressions postfix
  * Use case principalement pour l'utilisation avec SwiftUI
  */
 //: * Exemple d'un use case classique pour une `View` SwiftUI

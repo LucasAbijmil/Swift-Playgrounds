@@ -1,8 +1,9 @@
 import Foundation
 /*:
- # Async let binding – Permet d'exécuter des fonctions async en parallèle
+ # Async let binding – Permet d'exécuter des fonctions async en parallèle – Binding concurrentiel
  * Retourne une fois que tous les calls sont finis
  * Fonctionne comme un un `DispatchGroup` ou un `zip` en Combine
+ * Créer une child `Task` sur un autre thread, hérite de la priorité de sa tâche parent
  */
 struct UserData {
   let username: String
