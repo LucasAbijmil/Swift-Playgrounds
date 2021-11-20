@@ -1,7 +1,7 @@
 import Foundation
 /*:
  # Computed property get only – Support async throws
- * Les computed properties `get` only peuvent être `async` `await`, utilisé individuellement ou ensemble
+ * Les computed properties `get` only peuvent être `async` **et / ou** `await`
  */
 //: * Exemple de `get` `throws` :
 enum FileError: Error {
@@ -32,9 +32,9 @@ struct UserService {
 
   let username: String
 
-  var id: String {
+  var id: String? {
     get async {
-      return await fetchUserId(for: username)  ?? ""
+      return await fetchUserId(for: username)
     }
   }
 

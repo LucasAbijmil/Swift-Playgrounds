@@ -1,6 +1,6 @@
 import Foundation
 /*:
- # Async Await – Création et appelle de fonctions asynchrones
+ # Async Await – Création et appelle de fonctions asynchrones – Binding séquentiel
  * `async` permet de créer une fonction asynchrone avec un return comme une fonction synchrone
  * `await` permet d'appeller une fonction asynchrone
  */
@@ -65,6 +65,7 @@ func upload(result: Double) async -> String {
     * *Callback hell* disparu, grâce au fait que les fonctions `async` return et ne passe plus des `@escaping` closures
     * La syntaxe du code est similaire à du code synchrone ce qui facilite grandement la lecture
     * Une fonction marquée `async` ne veut pas dire qu'elle est nécessairement asynchrone, plutôt qu'*on lui en laisse la possibilité*
+    * Lorsqu'on attend (`await`), la `Task` libère le thread
  */
 func proccessWeather() async {
   let weatherHistory = await fetchWeatherHistory()

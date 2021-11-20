@@ -7,7 +7,7 @@ import Foundation
     * Ajouter l'init pour être conforme à `Decodable`
     * Ajouter la fonction `encode(to:)` pour être conforme à `Encodable`
  */
-//: * Exemple d'une `Enum` sans `RawValue` et sans associated values
+//: * Exemple d'une `enum` sans `RawValue` et sans associated values
 enum Device: Codable {
   case phone
   case pad
@@ -15,7 +15,7 @@ enum Device: Codable {
   case tv
   case computer
 }
-//: * Exemple d'une `Enum` sans `RawValue` et avec associated values
+//: * Exemple d'une `enum` sans `RawValue` et avec associated values
 enum Weather: Codable {
   case sun
   case wind(speed: Int)

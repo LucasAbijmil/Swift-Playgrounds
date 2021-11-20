@@ -1,6 +1,6 @@
 import Foundation
 /*:
- # AsyncSequence protocol – Un type qui permet un accès asynchrone, séquentiel et itéré à une Sequence
+ # AsyncSequence protocol – Un type qui permet un accès asynchrone, séquentiel et itérer à une Sequence
  * Principalement utilisé pour des valeurs dans une séquence disponible asynchroniquement
  */
 /*:
