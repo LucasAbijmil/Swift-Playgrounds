@@ -59,7 +59,7 @@ let lucas2 = Personn(name: "Lucas", age: 22)
 lucas2.age // Ok car dans le même fichier
 lucas2.printName() // Ok car dans le même fichier
 /*:
- ## internal : par défaut (pas besoin de le déclarer)
+ ## internal : par défaut (pas besoin de le déclarer car implicit)
  * La propriété est accessible dans tout le module / projet (SwiftUI, UIKit par exemple)
  * Conclusion : *Cette donnée est accessible à travers toute ma code base, mais pas pour les autres modules*
  */
