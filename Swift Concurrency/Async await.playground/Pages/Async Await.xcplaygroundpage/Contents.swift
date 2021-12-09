@@ -42,7 +42,7 @@ func fetchAsyncString() async {
 }
 /*:
  * Si on souhaite que cette fonction ne soit pas marquée comme `async` mais qu'elle appelle tout de même la fonction `fetchString` on peut le faire grâce à une `Task` comme il suit
- * Une `Task` permet d'appeller et de gérer le contexte asynchrone d'une fonction marquée `async` (voir Structured Concurrency) ⚠️ TODO:
+ * Une `Task` permet d'appeller et de gérer le contexte asynchrone d'une fonction marquée `async` – voir [Structured Concurrency](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Concurrency/Structured%20Concurrency.playground)
  */
 func fetchAsyncStringWithTask() {
   Task {

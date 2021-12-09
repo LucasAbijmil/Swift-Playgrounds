@@ -1,6 +1,6 @@
 /*:
  # Swift 5.5
- * [Swift Concurrency](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Concurrency.playground)
+ * [Swift Concurrency](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Concurrency)
  * [Computed Property](Computed%20Property) : Les computed properties `get` only supportent `async` & `throws` utilisé ensemble ou séparément
  * [Double - CGFloat cast implicit](Double%20-%20CGFloat) : Cast implicite `CGFloat` vers `Double` et vice-versa
  * [Lazy var dans un context local](Lazy%20var%20in%20Local%20Context) : `lazy var` désormais possible dans le scope de fonctions
