@@ -1,4 +1,22 @@
-import Foundation
+import SwiftUI
+/*:
+ # Structured concurrency – Exécuter, annuler et surveiller des opérations concurrentes s'appuyant sur `async` `await` et les séquences asynchrones
+ * `Task` et `TaskGroup` permettent d'exécuter des opérations concurrentes soit individuellement soit de manière coordonée
+ */
+/*:
+ * Création d'une `Task` pour exécuter une seule opération  :
+ * On peut lui donner une priorité, avec le paramètre `priority` de type `TaskPriority` par défaut en `userInitiated`.
+ * S'exécute sur un background thread immédiatement
+ * Dans la closure `async` on doit expliciter le type de return de la `Task`
+ * Tip : les `Task` sont des `@non-escaping` closure, ainsi lorsqu'on les utilise dans des class / struct on aura pas besoin du `self` pour accéder aux propriétés et méthodes
+ * Appelle et lecture du résultat d'une `Task` :
+ * On accède au résultat grâce à la propriété `result` d'une `Task` lorsque la tâche asynchrone est terminée
+ * On accède à la value d'une `Task` grâce à la propriété `value` lorsque la tâche asynchrone est terminée
+ * L'appel doit être précédé du mot clé `await` car une `Task` est par définition `async` dûe à sa closure
+ * Cela permet de mettre en pause la fonction `printFibonacciSequence` jusqu'à ce la tâche soit finie et qui retournera le résultat
+ * Si on souhaite juste exécutée une tâche asynchrone sans mettre en pause la fonction, il ne faut pas stocker la tâche
+ * La fonction doit être marquée `async` car son scope contient un contexte asynchrone
+ */
 
 enum LocationError: Error {
   case uknown
@@ -29,24 +47,7 @@ func fibonacci(of number: Int) -> Int {
 
   return first
 }
-/*:
- # Structured concurrency – Exécuter, annuler et surveiller des opérations concurrentes s'appuyant sur `async` `await` et les séquences asynchrones
- * `Task` et `TaskGroup` permettent d'exécuter des opérations concurrentes soit individuellement soit de manière coordonée
- */
-/*:
- * Création d'une `Task` pour exécuter une seule opération  :
-    * On peut lui donner une priorité, avec le paramètre `priority` de type `TaskPriority` par défaut en `userInitiated`.
-    * S'exécute sur un background thread immédiatement
-    * Dans la closure `async` on doit expliciter le type de return de la `Task`
- * Tip : les `Task` sont des `@non-escaping` closure, ainsi lorsqu'on les utilise dans des class / struct on aura pas besoin du `self` pour accéder aux propriétés et méthodes
- * Appelle et lecture du résultat d'une `Task` :
-    * On accède au résultat grâce à la propriété `result` d'une `Task` lorsque la tâche asynchrone est terminée
-    * On accède à la value d'une `Task` grâce à la propriété `value` lorsque la tâche asynchrone est terminée
-    * L'appel doit être précédé du mot clé `await` car une `Task` est par définition `async` dûe à sa closure
-    * Cela permet de mettre en pause la fonction `printFibonacciSequence` jusqu'à ce la tâche soit finie et qui retournera le résultat
-    * Si on souhaite juste exécutée une tâche asynchrone sans mettre en pause la fonction, il ne faut pas stocker la tâche
- * La fonction doit être marquée `async` car son scope contient un contexte asynchrone
- */
+
 func printFibonacciSequence() async -> [Int] {
   let task = Task { () -> [Int] in
     var numbers = [Int]()
@@ -70,9 +71,9 @@ func printFibonacciSequence() async -> [Int] {
 }
 /*:
  * Création d'une `Task` dont l'opération contient une fonction ou plus qui `throws`
-    * À l'appelle de la fonction dans la closure de la `Task`, on est obligé d'utiliser `try` `await` (voir [Async throws functions](Async%20Await%20Throws))
-    * Si accès au résultat via `result` on a juste besoin du `await`
-    * Si accès à la value via `value` on a besoin du `try await` car la value peut aussi `throw` une erreur
+ * À l'appelle de la fonction dans la closure de la `Task`, on est obligé d'utiliser `try` `await` (voir [Async throws functions](Async%20Await%20Throws))
+ * Si accès au résultat via `result` on a juste besoin du `await`
+ * Si accès à la value via `value` on a besoin du `try await` car la value peut aussi `throw` une erreur
  * Ici, la fonction doit être marquée `async` `throws` car son scope contient un contexte asynchrone tout en appellant des fonctions qui `throws`
  */
 func runMultipleCalculations() async throws {
@@ -88,9 +89,9 @@ func runMultipleCalculations() async throws {
 }
 /*:
  * `Task` en plus d'exécuter des opérations, founit des méthodes pour contrôler la manière de l'exécution :
-    * `Task.sleep(_:)` : permet de stopper l'exécution d'une tâche pendant une durée donnée en nano secondes. Ainsi une 1 sec = 1_000_000_000
-    * `Task.checkCancellation()` : permet de vérifier si la tâche a été suspendue via la fonction `cancel()`. Si c'est le cas, la `Task` `throw` une `CancellationError`
-    * `Task.yield()` : permet de suspendre la tâche pendant quelques instants pour laisser d'autres tâches en attentes de s'exécuter
+ * `Task.sleep(_:)` : permet de stopper l'exécution d'une tâche pendant une durée donnée en nano secondes. Ainsi une 1 sec = 1_000_000_000
+ * `Task.checkCancellation()` : permet de vérifier si la tâche a été suspendue via la fonction `cancel()`. Si c'est le cas, la `Task` `throw` une `CancellationError`
+ * `Task.yield()` : permet de suspendre la tâche pendant quelques instants pour laisser d'autres tâches en attentes de s'exécuter
  * Dans le code ci-desosus, `Task.checkCancellation()` générera une erreur car elle est imédiatement cancel
  */
 func cancelSleepingTask() async {
@@ -112,11 +113,11 @@ func cancelSleepingTask() async {
 }
 /*:
  * Création d'une `TaskGroup` permettant d'avoir une une collection de `Task` qui travaillent ensemble pour produire une valeur finie
-    * Se créer via `await withTaskGroup(of: T.self)` où T est le type que retournera le `TaskGroup`
-    * La closure passe un paramètre qui est notre *groupe* de `Task`
-    * Pour ajouter une tâche à notre groupe, on utilise la fonction `addTask`
-    * Toutes les tâches d'un `TaskGroup` doivent retourner le même type de donnée
-    * L'ordre des fins des tâches est imprédictible
+ * Se créer via `await withTaskGroup(of: T.self)` où T est le type que retournera le `TaskGroup`
+ * La closure passe un paramètre qui est notre *groupe* de `Task`
+ * Pour ajouter une tâche à notre groupe, on utilise la fonction `addTask`
+ * Toutes les tâches d'un `TaskGroup` doivent retourner le même type de donnée
+ * L'ordre des fins des tâches est imprédictible
  * On itère sur chaque value de chaque `Task` du groupe grâce à `for await value in group`
  * La fonction doit être marquée `async` car son scope contient un contexte asynchrone
  */
@@ -178,4 +179,3 @@ func printAllWeatherReadingsIfNotCancelled() async {
     print("Error : ", error.localizedDescription, " ...")
   }
 }
-//: [< Previous: Completion to `async` function](@previous)           [Home](Home)           [Next: `actors` >](@next)

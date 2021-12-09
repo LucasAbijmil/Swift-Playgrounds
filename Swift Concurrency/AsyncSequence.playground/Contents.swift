@@ -1,13 +1,13 @@
-import Foundation
+import SwiftUI
 /*:
- # AsyncSequence protocol – Un type qui permet un accès asynchrone, séquentiel et itérer à une Sequence
+ # AsyncSequence – Un protocol qui permet un accès asynchrone, séquentiel et d'itérer sur une Sequence
  * Principalement utilisé pour des valeurs dans une séquence disponible asynchroniquement
  */
 /*:
  * `AsyncSequence` est assez similaire à `Sequence` :
-    * Notre type doit être conforme à `AsyncSequence` & `AsyncIteratorProtocol`
-    * La méthode `next()` doit être marquée `async`
-    * Si on retire le `async`, on a une `Sequence` valide faisant la même chose
+ * Notre type doit être conforme à `AsyncSequence` & `AsyncIteratorProtocol`
+ * La méthode `next()` doit être marquée `async`
+ * Si on retire le `async`, on a une `Sequence` valide faisant la même chose
  */
 struct DoubleGenerator: AsyncSequence {
   typealias Element = Int
@@ -16,7 +16,7 @@ struct DoubleGenerator: AsyncSequence {
     var current = 1
 
     mutating func next() async -> Int? {
-      defer { current *= 2 }
+      defer { current &*= 2 }
 
       if current < 0 {
         return nil
@@ -43,4 +43,3 @@ func containsExactNumber() async {
   let match = await doubles.contains(16_777_216)
   print(match)
 }
-//: [< Previous: `async let` binding](@previous)           [Home](Home)           [Next: Completion to `async` function >](@next)
