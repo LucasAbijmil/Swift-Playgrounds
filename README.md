@@ -30,7 +30,14 @@ Here's the list:
 - RawRepresentable
 - Static properties & functions
 - Strings extensions & tricks
-- Swift Concurrency : `async await`, `async let` binding, `Task` & `TaskGroup`, `Actor` & `@MainActor` and more.
+- Swift Concurrency :
+  - @globalActor, GlobalActor & @MainActor
+  - Actor
+  - Async Let
+  - Async await
+  - AsyncSequence
+  - Sendable, @unchecked Sendable & @Sendable
+  - Structured Concurrency
 - Swift Updates : A file containing playgrounds for Swift updates.
   - Swift 5.5
 - try, throws & rethrows
