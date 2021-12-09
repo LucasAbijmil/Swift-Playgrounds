@@ -6,14 +6,15 @@ import UIKit
  * `async` `await` fait partie de la *concurrence structurée* ce qui signifie que **plusieurs "morceaux" de code peuvent s'exécuter en même temps**
  * Grâce aux fonctions marquées `async`, on peut définir des méthodes asynchrone qui auparavant étaient représentées par des `@escaping` closures
  */
-//: * `async` est l'abbréviation de asynchrone, cela indique qu'une fonction effectue un travail **potentiellement asynchrone**
+//: * `async` est l'abbréviation de asynchrone, cela indique qu'une fonction effectue un travail **potentiellement asynchrone** (on lui en laisse la possibilité)
 func fetchString() async -> String {
   /* some code */
   return "async function"
 }
 /*:
  * De plus, les **fonctions marquées `async` sont généralement (mais pas toujours) marquées `throws`**
- * **Cela signifie que la fonction effectue un travail asynchrone susceptible d'échouer et donc de générer (`throw`) une erreur**
+ * L'ordre pour la signature est `async throws`, à l'appel c'est `try await` 
+ * Cela signifique que *nous attendons qu'un travail potentiellement asynchrone se termine, et quand il se termine, il peut potentiellement générer une erreur*
  * La fonction ci-dessous retourne un `[UIImage]` si tout s'est bien passé autrement elle `throw` une erreur si quelque chose s'est mal passé
  */
 func fetchImages() async throws -> [UIImage] {
@@ -91,4 +92,4 @@ func fetchAllImages() {
     }
   }
 }
-//:[Home](Home)           [Next: Structured Concurrency>](@next)
+//:[Home](Home)           [Next: `async URLSession` >](@next)

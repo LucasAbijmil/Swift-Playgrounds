@@ -40,7 +40,7 @@ func fetchAllImages() {
  * Après un certain temps, un résultat est reçu et nous retournons dans notre flow au sein de la closure
  * Il s'agit d'un **ordre d'exécution non structuré le rendant (potentiellement) difficile à suivre & à comprendre**
  */
-//: * C'est encore plus vrai si nous devions exécuter une autre méthode asynchrone dans la completion d'une première fonction, rajoutant un autre callback (*pyramid of doom*) comme il suit
+//: * C'est encore plus vrai si nous devions exécuter une autre méthode asynchrone dans la completion d'une première fonction, rajoutant un autre callback (*pyramid of doom & callback hell*) comme il suit
 func fetchAllImagesAndResize() {
   // 1. Appel de la fonction fetchImages
   fetchImages { result in
@@ -98,4 +98,4 @@ func fetchAllImagesAndResizeWithAsyncAwait() {
  */
 //: * Est-ce que le type `Result` va être abandonné avec les fonction `async throws` ? Très probablement, puisque les erreurs des fonctions `throw` une `Error`
 
-//: [< Previous: `async await`](@previous)           [Home](Home)           [Next: Adopter `async` `await` dans un projet existant >](@next)
+//: [< Previous: `async URLSession`](@previous)           [Home](Home)           [Next: Adopter `async` `await` dans un projet existant >](@next)

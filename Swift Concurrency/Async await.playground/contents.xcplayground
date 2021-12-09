@@ -3,6 +3,7 @@
     <pages>
         <page name='Home'/>
         <page name='Async Await'/>
+        <page name='Async URLSession'/>
         <page name='Structured Concurrency'/>
         <page name='Adopter Async Await'/>
     </pages>

@@ -62,6 +62,26 @@ struct ImageFetcherWrapper {
     }
   }
 }
+/*:
+ * Il existe deux autres fonctions similaires qui sont `withUnsafeThrowingContinuation` & `withUnsafeContinuation`
+ * On peut réécrire donc la fonction ci-dessus comme il suit
+ */
+struct ImageFetcherWrapperUnsafe {
+  func fetchImages(completion: @escaping (Result<[UIImage], Error>) -> Void) { }
 
-/* TODO: CHECKED VS UNCHECKED*/
+  func fetchImages() async throws -> [UIImage] {
+    return try await withUnsafeThrowingContinuation { continuation in
+      fetchImages() { result in
+        continuation.resume(with: result)
+      }
+    }
+  }
+}
+/*:
+ * Différences entre ces deux types de fonctions :
+    * `withCheckedThrowingContinuation` & `withCheckedContinuation` : Swift vérifie qu'on appelle au minimum et au maximum une fois le `resume`. **⚠️ Cette vérification a un coup au runtime**
+    * `withUnsafeThrowingContinuation` & `withUnsafeContinuation` : Aucune vérificatiion faite au runtime – **peut provoquer des leaks / crashs** si on appelle `resume` moins ou plus d'une fois
+ * Une bonne technique consiste à utiliser les `checked` version puis de passer aux `unsafe` une fois que tous les warnings / erreurs ont été fixé
+ */
+
 //: [< Structured Concurrency](@previous)           [Home](Home)
