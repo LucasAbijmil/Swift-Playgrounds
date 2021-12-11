@@ -87,7 +87,7 @@ func fetchData(completion: @escaping (Result<[UIImage], Error>) -> Void) {
  * Dans l'exemple ci-dessus on est **sûr à 100% que le `DispatchQueue` est nécessaire**
  * Cependant, forcer l'update sur le main thread pourrait être inutile dans le cas où nous serions déjà sur le main thread, ce qui entraînerait une répartition supplémentaire qui aurait pu être évitée
  
- * Dans ce genre de use, il est p**lus judicieux de décorer la `closure` avec `@MainActor` pour s'assure que les tâches soient exécutées sur le main thread**
+ * Dans ce genre de use case, il est **plus judicieux de décorer la `closure` avec `@MainActor` pour s'assure que les tâches soient exécutées sur le main thread**
  * On peut réécrire la fonction précèdente comme il suit
  */
 func fetchDatas(completion: @MainActor @escaping (Result<[UIImage], Error>) -> Void) {
