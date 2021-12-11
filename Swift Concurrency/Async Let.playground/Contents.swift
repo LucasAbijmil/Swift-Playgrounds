@@ -74,7 +74,7 @@ Task {
 //: * Il faut assigner les résultats en utilisant `await` si les **lignes suivantes dépendent du résultat de la / des méthode(s) `async`**
 /*:
  * `async let` avec des fonctions `async throws` :
-    * Lors de l'assignation de plusieurs `async let`, si au moins l'une des fonction `async throws`, alors il faut faire **précédé l'assignation par `try await`**
+    * Lors de l'assignation de plusieurs `async let`, si au moins l'une des fonctions `async throws`, alors il faut faire **précédé l'assignation par `try await`**
     * De plus cette assignation doit se faire dans un `do` `catch` block
  * Définissons la même fonction pour fetch une image mais qui `throws`, que nous utiliserons uniquement pour la dernière image
  */
@@ -106,7 +106,7 @@ Task {
  * Enfin il n'est pas possible de déclarer des `async let` comme `stored property`, cela générera deux erreurs :
     * *'async let' can only be used on local declarations*
     * *'async' call cannot occur in a property initializer*
- * En d'autres termes, les **`async let` ne peuvent être utilisés que dans des locals scope c'est à dire des functions**
+ * En d'autres termes, les **`async let` ne peuvent être utilisés que dans des locals scopes c'est à dire des functions**
  */
 final class ViewModel {
   async let image = await loadImage(index: 0)
