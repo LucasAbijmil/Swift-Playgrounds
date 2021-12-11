@@ -117,9 +117,9 @@ actor BankAccountHolder {
   }
 }
 /*:
- * `holder` est immutable car c'est une constante (`let`), elle est donc thread safe.
+ * `holder` est immutable car c'est une constante (`let`), elle est donc thread safe
  * **On peut y accéder en toute sécurité même depuis un environnemnt non isolé sans créer de Data Races** :
-    * Le compilo est assez intelligent pour reconnaître cela : **une constant est implicitement `nonisolated`**
+    * Le compilo est assez intelligent pour reconnaître cela : **une constante est implicitement `nonisolated`**
  * Cependant pour les `computed property`, on doit aider le compilateur
  */
 actor AccountInfo {
