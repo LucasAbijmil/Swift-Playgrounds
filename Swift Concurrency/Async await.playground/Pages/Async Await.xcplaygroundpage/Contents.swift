@@ -3,8 +3,8 @@ import UIKit
  # Async await – Créer & appeler des fonctions (potentiellement) asynchrones
  */
 /*:
- * `async` `await` fait partie de la *concurrence structurée* ce qui signifie que **plusieurs "morceaux" de code peuvent s'exécuter en même temps**
- * Grâce aux fonctions marquées `async`, on peut définir des méthodes asynchrone qui auparavant étaient représentées par des `@escaping` closures
+ * `async` `await` fait partie de la *concurrence structurée* ce qui signifie que **plusieurs *morceaux* de code peuvent s'exécuter en même temps**
+ * Grâce aux fonctions marquées `async`, on peut définir des méthodes asynchrones qui auparavant étaient représentées par des `@escaping` closures
  */
 //: * `async` est l'abbréviation de asynchrone, cela indique qu'une fonction effectue un travail **potentiellement asynchrone** (on lui en laisse la possibilité)
 func fetchString() async -> String {
@@ -22,16 +22,16 @@ func fetchImages() async throws -> [UIImage] {
   return []
 }
 /*:
- * **`await` est le mot clé utilisé pour appeller une fonction marquée `async`**
+ * **`await` est le mot clé utilisé pour appeller une fonction marquée `async`** – comme `try` pour `throws`
  * `async` et `await` sont les meilleurs amis car l'un ne va jamais sans l'autre, comme `throws` & `try` – *await is awaiting a callback from his buddy async*
- * En utilisant le mot clé `await` on demande à notre programme "d'attendre" le résultat d'une fonction marquée `async` et de ne continuer qu'après l'arrivé d'un résultat ou d'une erreur
+ * En utilisant le mot clé `await` on demande à notre programme *d'attendre* le résultat d'une fonction marquée `async` et de ne continuer qu'après l'arrivé d'un résultat ou d'une erreur
  */
 func fetchAsyncString() {
   let string = await fetchString()
   print(string)
 }
 /*:
- * En appellant une fonction marquée `async` dans une fonction "classique", cela génère une erreur : *'async' call in a function that does not support concurrency*
+ * En appellant une fonction marquée `async` dans une fonction *classique*, cela génère une erreur : *'async' call in a function that does not support concurrency*
  * **Cette erreur se produit quand nous essayons d'appeller une fonction `async` dans un environnement d'appel synchrone (qui ne supporte pas la concurrence)**
  * **Une fonction qui appel une ou plusieurs fonction marquées comme `async` doit également être marquée `async` si elle ne gère pas la concurrence grâce à une `Task`**
  * C'est le même raisonnement qu'une fonction qui appelle une `throws` fonction sans gérer le cas d'erreur dans un block `do catch`

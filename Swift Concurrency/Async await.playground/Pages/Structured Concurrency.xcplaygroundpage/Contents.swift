@@ -40,7 +40,7 @@ func fetchAllImages() {
  * Après un certain temps, un résultat est reçu et nous retournons dans notre flow au sein de la closure
  * Il s'agit d'un **ordre d'exécution non structuré le rendant (potentiellement) difficile à suivre & à comprendre**
  */
-//: * C'est encore plus vrai si nous devions exécuter une autre méthode asynchrone dans la completion d'une première fonction, rajoutant un autre callback (*pyramid of doom & callback hell*) comme il suit
+//: * C'est encore plus vrai si nous devons exécuter une autre méthode asynchrone dans la completion d'une première fonction, rajoutant un autre callback (*pyramid of doom & callback hell*) comme il suit
 func fetchAllImagesAndResize() {
   // 1. Appel de la fonction fetchImages
   fetchImages { result in

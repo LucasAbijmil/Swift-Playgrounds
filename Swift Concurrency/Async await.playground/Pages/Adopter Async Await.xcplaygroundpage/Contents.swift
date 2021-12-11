@@ -9,18 +9,18 @@ import UIKit
  * Cela peut s'apparenter à la dépréciation de méthode dans un SDK qui est utilisé par des développeurs
  */
 /*:
- * Xcode facilite grandement la refactorisation de notre code à travers plusieurs mécanismes (cmd + clique gauche)
+ * Xcode facilite grandement la refactorisation de notre code à travers plusieurs mécanismes (cmd + clic gauche)
  * Nous nous baserons sur cette exemple plutôt simple qui est un fetch avec une completion contenant un `Result<[UIImage], Error>`
  */
 struct ImageFetcher {
   func fetchImages(completion: @escaping (Result<[UIImage], Error>) -> Void) { /* some network call */ }
 }
-//: * Le premier mécanisme est *Convert Function to async* **permettant de transformer la signature de la fonction en une version `async throws` – Cela ne modifie pas le code à l'intérieur !**
+//: * Le premier mécanisme est *Convert Function to async* **permettant de transformer la signature de la fonction en une version `async throws` – ⚠️ Cela ne modifie pas le code à l'intérieur !**
 struct ImageFetchConvert {
   func fetchImages() async throws -> [UIImage] { /* some network call */ return [] }
 }
 /*:
- * Le deuxième mécanisme est *Add Async Alternative*, qui fait plusieurs chose à la fois :
+ * Le deuxième mécanisme est *Add Async Alternative*, qui fait plusieurs choses à la fois :
     * Garde l'ancienne signature de l'API mais en utilisant à l'intérieur la version `async` de cette même API via une `Task`
     * Créer la fonction `async` pour vous tout en y conservant le même code qu'avant – il peut donc être nécessaire de faire des modifications
  * Le `@available` avec le `deprecated` est très pratique pour savoir où mettre à jour le code avec la nouvelle version `async` de l'API
@@ -48,7 +48,7 @@ struct ImageFetchAlternative {
 /*:
  * Le troisième mécanisme est *Add Async Wrapper* qui créer une API `async throws` de notre fonction en wrappant la completion
  * Pour cela dans on utilise **`withCheckedThrowingContinuation` qui permet de wrapper des fonctions avec completion de type `Result<T, Error>`**. S'il y a une erreur dans la completion, celle-ci est `throw` dans la fonction `async`
- * Les méthodes qui ne retourne pas d'erreur peuvent utiliser la méthode `withCheckedContinuation` qui fonctionne de la même manière mais ne supporte pas les erreurs
+ * Les completions *juste* `T` peuvent être wrapper avec la méthode `withCheckedContinuation` qui fonctionne de la même manière mais ne supporte pas les erreurs
  * **Ces deux méthodes suspendent la tâche en cours jusqu'à ce que la closure soit trigger pour déclencer la `continuation` de la méhtode `async`**
  */
 struct ImageFetcherWrapper {
@@ -80,7 +80,7 @@ struct ImageFetcherWrapperUnsafe {
 /*:
  * Différences entre ces deux types de fonctions :
     * `withCheckedThrowingContinuation` & `withCheckedContinuation` : Swift vérifie qu'on appelle au minimum et au maximum une fois le `resume`. **⚠️ Cette vérification a un coup au runtime**
-    * `withUnsafeThrowingContinuation` & `withUnsafeContinuation` : Aucune vérificatiion faite au runtime – **peut provoquer des leaks / crashs** si on appelle `resume` moins ou plus d'une fois
+    * `withUnsafeThrowingContinuation` & `withUnsafeContinuation` : Aucune vérification faite au runtime – **peut provoquer des leaks / crashs** si on appelle `resume` moins ou plus d'une fois
  * Une bonne technique consiste à utiliser les `checked` version puis de passer aux `unsafe` une fois que tous les warnings / erreurs ont été fixé
  */
 
