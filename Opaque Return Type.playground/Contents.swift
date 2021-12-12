@@ -1,7 +1,7 @@
 import Foundation
 /*:
  # Opaque Return Type & `Some`
- * Uniquement pour des return dont le type est un protocol
+ * Uniquement pour des return dont le type est un protocol avec un associated type
  * Présent notamment dans SwiftUI 👉 `var body: some View`
     * Le body s'attend à être de type `View` mais ne sait pas que quels `View` il sera composé
  */
