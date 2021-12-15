@@ -5,13 +5,13 @@ A set of playgrounds that explains a Swift topic.
 These playgrounds cover a technical topic of Swift with examples. **All explanations are in French**.
 
 Here's the list: 
-- @(non)escaping closures
-- @autoclosure
-- @discardableResult
-- Access Control
-- ARC & Memory Leaks
-- ARC, Retain Cycle & Memory Leaks
-- Array extensions & tricks
+- @(non)escaping closures : The difference between a `@nonescaping` & an `@escaping` closure.
+- @autoclosure : Transform an argument of a function into a closure.
+- @discardableResult : Allows to ignore the warning if the returned value of a function is not assigned.
+- Access Control : Access control (*ACL*) allows you to restrict or not certain parts of your code.
+- ARC & Memory Leaks : How the Automatic Reference Couting (*ARC*) works – Definition & resolution of memory leaks.
+- ARC, Retain Cycle & Memory Leaks : How the Automatic Reference Couting (*ARC*) works – Definition & resolution of memory leaks.
+- Array extensions & tricks : Functions of the standard library explained & some useful extensions.
 - Custom Prefix, Postfix, Infix Operators
 - Defer
 - Dependency Injection
