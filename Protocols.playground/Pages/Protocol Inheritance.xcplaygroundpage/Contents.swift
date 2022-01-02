@@ -2,6 +2,7 @@
  # Protocol inheritance
  * Un des pilliers de la POP 👉 évite les *massiv `protocol`*
  * Permet aux `protocols` d'hériter d'autres `protocols` et d'ajouter de nouveaux requierements propres à ce `protocol` si besoin
+ * À utiliser uniquement s'il y a une *relation sémantique*, autrement on préferera le [protocol composition](Protocol%20Composition)
  */
 /*:
  Exemple d'un *massiv protocol* `GameUnit` représentant tout type d'unité dans un jeu-vidéo
@@ -138,12 +139,11 @@ struct Warrior: MovingGameUnit, MilitaryGameUnit {
   }
 }
 /*:
- Pour les unités qui tire et se déplace, celles-ci doivent se conformer à `MovingGameUnit` & `MilitaryGameUnit`. On peut donc merger de deux manières ces `protocols` :
- * Création d'un `protocol` héritant de `MovingGameUnit` & `MilitaryGameUnit` et qui ne rajoute pas de nouveaux requierements
- * Création d'un `typealias`
+ Pour les unités qui tire et se déplace, celles-ci doivent se conformer à `MovingGameUnit` & `MilitaryGameUnit`.
+
+ Étant donné qu'il y a une *relation sémantique* entre ces deux protocols, on peut créer un nouveau protocol `MovingMilitaryUnit` héritant de `MovingGameUnit` & `MilitaryGameUnit`
  */
-//: Méthode 1 : création d'un `protocol MovingMilitaryUnit` héritant de ces deux `protocols`
-protocol MovingMilitaryUnit: MovingGameUnit, MilitaryGameUnit { }
+protocol MovingMilitaryUnit: MovingGameUnit, MilitaryGameUnit {}
 
 struct Soldier: MovingMilitaryUnit {
   var name: String
@@ -160,22 +160,4 @@ struct Soldier: MovingMilitaryUnit {
     unit.health -= 2
   }
 }
-//: Méthode 2 : création d'un `typealias`
-typealias MovingMilitaryGameUnit = MovingGameUnit & MilitaryGameUnit
-
-struct Tank: MovingMilitaryGameUnit {
-  var name: String
-  var position: (x: Float, y: Float)
-  var health: UInt
-  var hitPower: UInt
-
-  mutating func moveBy(_ x: Float, _ y: Float) {
-    self.position.x += x
-    self.position.y += y
-  }
-
-  func fireAt(unit: inout BaseGameUnit) {
-    unit.health -= 2
-  }
-}
-//: [< Previous: Protocol & implémentation par défaut](@previous)           [Home](Introduction)           [Next >](@next)
+//: [< Previous: Protocol & implémentation par défaut](@previous)           [Home](Introduction)           [Next: Protocol Composition >](@next)

@@ -154,8 +154,8 @@ extension TextClearable3 {
     print("Clearing text...")
   }
 }
-
-protocol ColorAndTextUpdatable3: ColorChangable3, TextClearable3 { }
+//: Utilisation du [protocol composition](Protocol%20Composition)
+typealias ColorAndTextUpdatable3 = ColorChangable3 & TextClearable3
 
 final class MyButton3: ColorAndTextUpdatable3 /* = ColorChangable3, TextClearable3 */ {
 

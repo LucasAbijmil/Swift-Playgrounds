@@ -6,5 +6,6 @@
         <page name='Optional Requierements'/>
         <page name='Protocol Extension'/>
         <page name='Protocol Inheritance'/>
+        <page name='Protocol Composition'/>
     </pages>
 </playground>
