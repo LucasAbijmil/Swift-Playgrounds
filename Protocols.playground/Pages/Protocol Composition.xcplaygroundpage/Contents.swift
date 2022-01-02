@@ -50,4 +50,4 @@ struct ObjectWithTypealias: AllProtocols {
     print(message)
   }
 }
-//: [< Previous: Protocol inheritance & POP](@previous)           [Home](Introduction)           [Next >](@next)
+//: [< Previous: Protocol inheritance & POP](@previous)           [Home](Introduction)           [Next: Protocol Restriction >](@next)
