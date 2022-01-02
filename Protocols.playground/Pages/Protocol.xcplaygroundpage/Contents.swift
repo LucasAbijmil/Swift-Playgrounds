@@ -72,4 +72,4 @@ final class Ethereum: CryptoCurrency {
 let cryptoCurrencies: [CryptoCurrency] = [Bitcoin(price: 900), Ethereum(price: 500)]
 cryptoCurrencies.forEach { print($0.name, $0.price) }
 cryptoCurrencies.forEach { $0.showHistory() }
-//: [Home](Introduction)           [Next: Protocol & implémentation par défaut >](@next)
+//: [Home](Introduction)           [Next: Protocol & optional requierements >](@next)

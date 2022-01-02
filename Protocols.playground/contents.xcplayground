@@ -3,6 +3,7 @@
     <pages>
         <page name='Introduction'/>
         <page name='Protocol'/>
+        <page name='Optional Requierements'/>
         <page name='Protocol Extension'/>
         <page name='Protocol Inheritance'/>
     </pages>

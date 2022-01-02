@@ -32,7 +32,7 @@ final class MyView: ColorChangable {
   }
 }
 /*:
- ⚠️ **Code smell** : on fait trois fois la même implémentation
+ ⚠️ On fait trois fois la même implémentation
  * Pour éviter cela, on va faire une implémentation par défaut pour la fonction `changeColor` dans une `extension` du `protocol`
  * Les objets conformes à ce `protocol` n'ont plus nécessairement besoin d'implémenter `changeColor`
  * Si les objets implémentent `changeColor` alors on utilise cette implémentation, autrement on prend l'implémentation par défaut (faite dans l'`extension` du `protocol`)
@@ -189,4 +189,4 @@ myLabel3.clearText() // utilisation de l'implémentation de l'objet
 let myView3 = MyView3()
 myView3.changeColor() // utilisation de l'implémentation par défaut
 myView3.clearText() // utilisation de l'implémentation par défaut
-//: [< Previous: Déclaration & conformance à un protocol](@previous)           [Home](Introduction)           [Next: Protocol inheritance & POP >](@next)
+//: [< Previous: Protocol & optional requierements](@previous)           [Home](Introduction)           [Next: Protocol inheritance & POP >](@next)
