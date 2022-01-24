@@ -38,4 +38,4 @@ protocol GlobalActorProtocolOnly: GlobalActor {}
 actor ActorObject3: GlobalActorProtocolOnly {
   static var shared = ActorObject3()
 }
-//: [< Previous: Protocol Composition](@previous)           [Home](Introduction)           [Next >](@next)
+//: [< Previous: Protocol Composition](@previous)           [Home](Introduction)           [Next: Protocol Generic >](@next)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true'>
+<playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true' executeOnSourceChanges='true'>
     <pages>
         <page name='Introduction'/>
         <page name='Protocol'/>
@@ -8,5 +8,6 @@
         <page name='Protocol Inheritance'/>
         <page name='Protocol Composition'/>
         <page name='Protocol Restriction'/>
+        <page name='Protocol Generic'/>
     </pages>
 </playground>

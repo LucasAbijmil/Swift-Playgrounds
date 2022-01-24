@@ -7,8 +7,8 @@ import Foundation
  */
 /*:
  Les `properties` doivent être déclaré `get` ou `get set` :
- * `get` : constante, variable, computed property (get only) ou private(set) 👉 non mutable en dehors de sa définition
- * `get set` : variable ou computed property (get & set) 👉 mutable en dehors de sa définition
+ * `get` : constante, variable, computed property (get only) ou private(set) 👉 non mutable en dehors de son implémentation
+ * `get set` : variable ou computed property (get & set) 👉 mutable en dehors de son implémentation
  * Par défaut le compilateur met toutes les `properties` en variable car il les considère en tant que `computed properties`
  */
 protocol CryptoCurrency {
