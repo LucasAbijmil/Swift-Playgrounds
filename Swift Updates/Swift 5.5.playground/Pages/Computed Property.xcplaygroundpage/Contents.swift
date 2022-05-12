@@ -1,7 +1,7 @@
 import Foundation
 /*:
  # Computed property get only – Support async throws
- * Les computed properties `get` only peuvent être `async` **et / ou** `await`
+ * Les computed properties `get` only peuvent être `throws` **et / ou** `async`
  */
 //: * Exemple de `get` `throws` :
 enum FileError: Error {

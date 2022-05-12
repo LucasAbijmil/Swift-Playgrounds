@@ -70,6 +70,7 @@ Here's the list:
 - [**Swift Updates**](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Updates): A file containing playgrounds for Swift updates.
 
   - [**Swift 5.5**](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Updates/Swift%205.5.playground/Pages)
+  - [**Swift 5.6**](https://github.com/LucasAbijmil/Swift-Playgrounds/tree/master/Swift%20Updates/Swift%205.6.playground/Pages)
 
 - [**Typealias**](https://github.com/LucasAbijmil/Swift-Playgrounds/blob/master/Typealias.playground/Contents.swift): What is a `typealias`? – How to create a generic `typealias`?
 
